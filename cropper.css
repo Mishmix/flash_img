@@ -1,0 +1,46 @@
+/* Styles for the cropping interface and handles. */
+
+/* Style for crop handles: small circles that can be dragged to resize the selection */
+#cropModal .cr-h {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #69b9ff;
+  border: 2px solid #0f151f;
+  border-radius: 50%;
+  z-index: 5;
+}
+
+/* Position each handle using CSS variables set by JS */
+#cropModal .cr-nw { left: calc(var(--x, 10px) - 6px); top: calc(var(--y, 10px) - 6px); cursor: nwse-resize; }
+#cropModal .cr-n  { left: calc(var(--xMid, 10px) - 6px); top: calc(var(--y, 10px) - 6px); cursor: ns-resize; }
+#cropModal .cr-ne { left: calc(var(--x2, 10px) - 6px); top: calc(var(--y, 10px) - 6px); cursor: nesw-resize; }
+#cropModal .cr-e  { left: calc(var(--x2, 10px) - 6px); top: calc(var(--yMid, 10px) - 6px); cursor: ew-resize; }
+#cropModal .cr-se { left: calc(var(--x2, 10px) - 6px); top: calc(var(--y2, 10px) - 6px); cursor: nwse-resize; }
+#cropModal .cr-s  { left: calc(var(--xMid, 10px) - 6px); top: calc(var(--y2, 10px) - 6px); cursor: ns-resize; }
+#cropModal .cr-sw { left: calc(var(--x, 10px) - 6px); top: calc(var(--y2, 10px) - 6px); cursor: nesw-resize; }
+#cropModal .cr-w  { left: calc(var(--x, 10px) - 6px); top: calc(var(--yMid, 10px) - 6px); cursor: ew-resize; }
+
+/* Dotted outline for the selection overlay */
+#cropOverlay:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px dashed rgba(201,235,255,.55);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* Style for crop-open button (added to top-left of stage) */
+#cropOpenBtn {
+  background: #0f151fdd;
+  border: 1px solid #22303f;
+  color: #eaf2ff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+#cropOpenBtn[disabled] {
+  opacity: .55;
+  cursor: not-allowed;
+}
